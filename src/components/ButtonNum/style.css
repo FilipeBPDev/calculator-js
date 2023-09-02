@@ -1,0 +1,6 @@
+.num-buttons{
+    display:grid;
+    grid-template-columns: repeat(3, 112.5px);
+    max-width: 75%;
+    gap: 10px;
+  }
