@@ -1,0 +1,12 @@
+.display-num {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 85.3%;
+  direction: rtl;
+  grid-template-columns: repeat(3, 112.5px);
+  margin-bottom: 0;
+  margin-left: 0;
+  gap: 10px;
+}
