@@ -1,0 +1,11 @@
+.calculator-area {
+  display: flex;
+  flex-direction: column;
+  background-color: #231942;
+  border-radius: 30px;
+  width: 500px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

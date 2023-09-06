@@ -1,27 +1,35 @@
 .operator-button {
     display: grid;
     grid-template-columns: repeat(3, 112.5px);
-    border-radius: 8px;
+    border: 1px solid #231942;
+    border-radius: 20px;
     
     padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: transparent;
+    background-color:#E0B1CB;
     cursor: pointer;
     transition: border-color 0.25s;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: 19px;
+    margin-right: 9px;
+    
 
 }
 .display-operations-container {
     display: flex;  
     flex-direction: column; /* Altera o layout para coluna (um abaixo do outro) */
     width: 100%;
-    max-width: 88%;
     gap: 10px;
     
 }
+
+.display-operations-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+  }

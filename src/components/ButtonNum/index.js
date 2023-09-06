@@ -10,19 +10,18 @@ function ButtonNumber(n) {
         </button>
         `
     }
-    $numButtons += /*html*/`
-        <button class="num-buttons">
-        C        
-        </button>    
-    `
+    
     $numButtons += /*html*/ `
         <button class="num-buttons">
         Del
         </button>
     `
-    $numButtons += /*html*/ `
-        
+    $numButtons += /*html*/`
+        <button class="num-buttons">
+        C        
+        </button>    
     `
+    
 
 
     return $numButtons;
