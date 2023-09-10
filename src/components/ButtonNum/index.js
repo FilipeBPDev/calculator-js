@@ -5,7 +5,7 @@ function ButtonNumber(n) {
 
     for(let i = n ; i >= 0; i--){
         $numButtons += /*html*/ `
-        <button class= "num-buttons">
+        <button class= "num-buttons" id = ${i} >
             ${i}
         </button>
         `
@@ -20,7 +20,7 @@ function ButtonNumber(n) {
         <button class="num-buttons">
         C        
         </button>    
-    `
+    `;
     
 
 

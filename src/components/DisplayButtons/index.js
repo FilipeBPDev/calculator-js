@@ -3,11 +3,16 @@ import "./style.css"
 
 
 function DisplayButtons() {
-    return /*html*/ `
-        <div class="display-num">
+
+    const dispNum =  /*html*/ `
+        <div id="disp-num" class="display-num">
             ${ButtonNumber(9)}
         </div>
     `;
-}
+
+
+
+    return dispNum
+};
 
 export default DisplayButtons;
