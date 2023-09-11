@@ -9,3 +9,9 @@
   justify-content: center;
   align-items: center;
 }
+.display-equal{
+  width: 420px;
+  display: flex;
+  flex-direction:row;
+  gap: 20px;
+}

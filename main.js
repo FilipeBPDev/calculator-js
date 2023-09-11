@@ -17,6 +17,8 @@ let result = document.querySelector('#display');
 const btnNum = document.querySelectorAll('.disp-btn');
 const cBtn = document.querySelector('.clear');
 const dBtn = document.querySelector('.del');
+const eqlBtn = document.querySelector('.equal');
+
 
 
 let btnsClicked = '';
@@ -29,6 +31,13 @@ const listenBtn = (event) => {
 
 };
 
+const calculateBtn = () => {
+    const numRes = Number(result.value);
+    console.log(numRes);
+
+}
+
+
 const clearBtn = () => {  
     result.value = '';
 };
@@ -38,6 +47,10 @@ const delBtn = () => {
     result.value = result.value.slice(0, -2); //-2 pois apaga o último valor e o espaço entre eles.
 }
 
+
+
+
+
 //ouvinte dos btns de números
 btnNum.forEach((btn) => {
     btn.addEventListener('click', listenBtn)
@@ -46,4 +59,6 @@ btnNum.forEach((btn) => {
 cBtn.addEventListener('click', clearBtn);
 //ouvinte botão del
 dBtn.addEventListener('click', delBtn);
+
+eqlBtn.addEventListener('click', calculateBtn);
 

@@ -24,19 +24,7 @@ function CalculatorApp() {
             ${DisplayEq}
         </div>
     </div>
-    `
-    //convertendo a string html a cima em um obejo no DOM para ser manipulado
-    /*const parser = new DOMParser();
-    const doc = parser.parseFromString($htmlCalculator, 'text/html');
-
-    const resDom = doc.querySelector('#display');
-    const tedt = resDom.getAttributeNode('value')
-    tedt.value = 'oi'*/
-    
-    
-   
-
-
+    ` 
 
     return $htmlCalculator;
 }
