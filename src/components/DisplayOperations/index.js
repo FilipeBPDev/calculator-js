@@ -6,9 +6,8 @@ function DisplayOperations() {
 
     for (let i = 0; i < operations.length; i++) {
         $displayOp += /*html*/ `
-        <button class="operator-button">
-        ${operations[i]}
-        </button>
+        <button class="operator-button 
+        disp-btn">${operations[i]} </button>
         `
     }
 
