@@ -18,28 +18,45 @@ const btnNum = document.querySelectorAll('.disp-btn');
 const cBtn = document.querySelector('.clear');
 const dBtn = document.querySelector('.del');
 const eqlBtn = document.querySelector('.equal');
-
-
+const operators = document.querySelectorAll('.operator-button')
 
 let btnsClicked = '';
+let currentIn = '';
+let currentOperator = '';
 
 //function exibir valor dos botões
 const listenBtn = (event) => {
-    const btnValue = event.target.textContent;   
+    const btnValue = event.target.textContent;
     result.value += btnValue
     btnsClicked += btnValue
 
 };
 
-const calculateBtn = () => {
-    const numRes = Number(result.value);
-    console.log(numRes);
+
+
+
+const calculateBtn = (value) => {
+    //separa todos os valores que estão divididos por +-*/
+    const nums = btnsClicked.split(/[+\-*\/]/);
+    const op = btnsClicked.split(/[0-9]+/).filter(Boolean);
+
+    const numbers = nums.map((num) => {
+        return Number(num);
+    });
+    console.log(numbers, op)
+    
+
+
+
 
 }
 
 
-const clearBtn = () => {  
+const clearBtn = () => {
     result.value = '';
+    displayValue = '';
+    currentIn = '';
+    currentOperator = '';
 };
 
 //function apagar o último valor clicado.

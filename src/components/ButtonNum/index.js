@@ -6,7 +6,7 @@ function ButtonNumber(n) {
     for(let i = n ; i >= 0; i--){
         $numButtons += /*html*/ `
         <button class= "num-buttons disp-btn" 
-        id = ${i} >${i}  </button>
+        id = ${i} >${i}</button>
         `
     }
     

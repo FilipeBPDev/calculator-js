@@ -1,4 +1,6 @@
 .result {
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: 30px;
     width: 375px;
     border: 1px solid #231942;
@@ -9,4 +11,12 @@
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f8f9fa;
     text-align: right;
+    letter-spacing: 2px;
+    
+}
+
+.display-values{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
 }
