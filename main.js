@@ -24,42 +24,57 @@ const listenBtn = (event) => {
 };
 
 const calculateBtn = () => {
-    //separa todos os valores que estão divididos por +-*/
+    // Separa todos os valores que estão divididos por +-*/
     const nums = btnsClicked.split(/[+\-*\/]/);
     const operators = btnsClicked.split(/[0-9.]+/).filter(Boolean);
     const numbers = nums.map((num) => {
         return Number(num);
-    }); 
+    });
 
-    //começa no primeiro valor digitado
-    let resultValue = numbers[0]; 
+    // separa os termos de adição/subtração
+    let addSubTerms = [];
+    let currentTerm = numbers[0];
 
-    for(let i = 0; i < operators.length; i++) {
+    for (let i = 0; i < operators.length; i++) {
         const op = operators[i];
         const nextNum = numbers[i + 1];
-
-        //verifica o operador e executa o cálculo
-        switch (op) {
-        case '+':
-            resultValue += nextNum;
-            break;
-        case '-':
-            resultValue -= nextNum;
-            break;
-        case '*':
-            resultValue *= nextNum;
-            break;
-        case '/':
-            if (nextNum === 0) {
-                resultValue = '[ERROR] Não é possível efetuar divisão por 0'
-                return;
+        //verifica se é o operador atual é de soma/subtração
+        if (op === '+' || op === '-') {
+            addSubTerms.push(currentTerm);
+            currentTerm = nextNum;
+        } else if (op === '*' || op === '/') {
+            //executa multiplicação e divisão no termo atual
+            if (op === '*') {
+                currentTerm *= nextNum;
+            } else if (op === '/') {
+                if (nextNum === 0) {
+                    result.value = '[ERROR] Não é possível efetuar divisão por 0';
+                    return;
+                }
+                currentTerm /= nextNum;
             }
-            resultValue /= nextNum
-            break;
-        default:
-            break;
-        }  
+        }
     }
+    addSubTerms.push(currentTerm);
+    
+    //executa operações de adição/subtração com reduce - reduz o array a um único elemento
+    let resultValue = addSubTerms.reduce((acc, term, index) => {
+        const op = operators[index]; //seleciona o operador correto
+        if (op === '-') {
+            acc -= term
+            return acc ; //subtração
+        } else if (op === '+') {
+            acc += term
+            return acc; //adição
+        } else {
+            // Não há operador anterior, verifique se há um termo atual
+            if (term !== undefined) {
+                return acc + term;
+            } else {
+                return acc; //não há termo atual, apenas retorne o acumulador
+            }
+        }
+    }, 0);
     result.value = resultValue.toString();
 }
 
