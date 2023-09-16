@@ -36,26 +36,30 @@ const calculateBtn = () => {
     let currentTerm = numbers[0];
 
     for (let i = 0; i < operators.length; i++) {
-        const op = operators[i];
-        const nextNum = numbers[i + 1];
-        //verifica se é o operador atual é de soma/subtração
-        if (op === '+' || op === '-') {
+    const op = operators[i];
+    const nextNum = numbers[i + 1];
+
+    if (op === '+' || op === '-') {
+        if (currentTerm !== undefined) {
             addSubTerms.push(currentTerm);
-            currentTerm = nextNum;
-        } else if (op === '*' || op === '/') {
-            //executa multiplicação e divisão no termo atual
-            if (op === '*') {
-                currentTerm *= nextNum;
-            } else if (op === '/') {
-                if (nextNum === 0) {
-                    result.value = '[ERROR] Não é possível efetuar divisão por 0';
-                    return;
-                }
-                currentTerm /= nextNum;
+        }
+        currentTerm = nextNum;
+    } else if (op === '*' || op === '/') {
+        if (op === '*') {
+            currentTerm *= nextNum;
+        } else if (op === '/') {
+            if (nextNum === 0) {
+                result.value = '[ERROR] Não é possível efetuar divisão por 0';
+                return;
             }
+            currentTerm /= nextNum;
         }
     }
+}
+if (currentTerm !== undefined) {
     addSubTerms.push(currentTerm);
+}
+    
     
     //executa operações de adição/subtração com reduce - reduz o array a um único elemento
     let resultValue = addSubTerms.reduce((acc, term, index) => {
@@ -76,6 +80,7 @@ const calculateBtn = () => {
         }
     }, 0);
     result.value = resultValue.toString();
+    btnsClicked = resultValue.toString();
 }
 
 const clearBtn = () => {
